@@ -59,7 +59,7 @@ Deep-Fake-Detection-AI-Model/
 5. Open a Pull Request.
 
 ## Issues
-Report bugs or request features at [Issues](https://github.com/yash-goyal-0910/Deep-Fake-Detection-AI-Model/issues).
+Report bugs or request features at [Issues](https://github.com/KunalWaghe/Deep-Fake-Detection-AI-Model/issues).
 
 ## Contact
 - Author: Kunal Waghe
