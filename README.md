@@ -16,7 +16,7 @@ A machine learning model to detect deepfake images and videos using deep learnin
 ## Installation
 1. Clone the repo:
    ```bash
-   git clone https://github.com/yash-goyal-0910/Deep-Fake-Detection-AI-Model.git
+   git clone https://github.com/yash-goyal-0910/DeepFake-Detection-Model.git
    cd Deep-Fake-Detection-AI-Model
    ```
 2. Create a virtual environment:
