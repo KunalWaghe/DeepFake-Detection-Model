@@ -1,66 +1,97 @@
-# Deep Fake Detection AI Model
+# DeepFake Detector — AI-Powered Video Analysis
 
-A machine learning model to detect deepfake images and videos using deep learning techniques.
+An AI-powered web application that analyzes videos to determine if they are authentic or deepfakes. The system extracts video frames, processes them using a pre-trained **InceptionV3** network for feature extraction, and feeds them into an **LSTM** sequence model built with **PyTorch** to make a final prediction.
 
 ## Features
-- Detects manipulated media with high accuracy.
-- Built with Python and deep learning frameworks.
-- Supports image and video inputs.
+- **Video Analysis**: Upload videos (MP4, AVI, MOV, MKV, WebM) to get a FAKE or REAL verdict.
+- **Deep Learning Pipeline**: Combines InceptionV3 (feature extraction) with an LSTM (sequence modeling).
+- **Modern Web Interface**: Beautiful, responsive frontend with drag-and-drop support and animations.
+- **FastAPI Backend**: Efficient, asynchronous REST API for handling video uploads and model inference.
 
 ## Tech Stack
-- Python 3.8+
-- TensorFlow/PyTorch
-- OpenCV
-- NumPy, Pandas
+- **Frontend**: HTML5, CSS3 (Vanilla), JavaScript
+- **Backend API**: FastAPI, Uvicorn, Python-Multipart
+- **Machine Learning**: PyTorch, TorchVision (CPU-optimized for inference)
+- **Computer Vision**: OpenCV (`opencv-python-headless`)
 
-## Installation
-1. Clone the repo:
+## Project Structure
+```text
+Deep-Fake-Detection-AI-Model/
+├── backend/
+│   ├── main.py                # FastAPI application & REST endpoints
+│   ├── model.py               # DeepfakeDetector class, InceptionV3 + LSTM PyTorch models
+│   ├── requirements.txt       # Backend dependencies
+│   ├── Dockerfile             # Docker container definition
+│   └── deepfake_video_model.pth # Trained model weights (generated via training)
+├── frontend/
+│   ├── index.html             # Main web interface
+│   ├── styles.css             # UI styling & animations
+│   └── script.js              # UI interaction logic and API requests
+├── training/
+│   ├── train_optimized.py     # Script to train the LSTM on video features
+│   └── train_optimized.ipynb  # Jupyter notebook alternative for training
+├── dataset/                   # Directory for training datasets (e.g. DFDC)
+└── generate_notebook.py       # Helper utility script
+```
+
+## Setup & Installation
+
+### 1. Prerequisites
+- Python 3.8 or higher
+- Git
+
+### 2. Backend Setup
+1. Clone the repository:
    ```bash
-   git clone https://github.com/yash-goyal-0910/Deep-Fake-Detection-AI-Model.git
-   cd Deep-Fake-Detection-AI-Model
+   git clone https://github.com/KunalWaghe/Deep-Fake-Detection-Model.git
+   cd Deep-Fake-Detection-Model/backend
    ```
-2. Create a virtual environment:
+2. Create and activate a virtual environment:
    ```bash
+   # Windows
    python -m venv venv
-   source venv/bin/activate  # Windows: venv\Scripts\activate
+   .\venv\Scripts\activate
+   
+   # Linux/Mac
+   python3 -m venv venv
+   source venv/bin/activate
    ```
-3. Install dependencies:
+3. Install the required dependencies:
    ```bash
    pip install -r requirements.txt
    ```
-
-## Usage
-1. Prepare your dataset (e.g., DFDC or custom deepfake dataset).
-2. Train the model:
+4. Start the FastAPI backend server:
    ```bash
-   python train.py --dataset path/to/dataset
+   python main.py
+   # Or using uvicorn directly:
+   # uvicorn main:app --host 0.0.0.0 --port 8000 --reload
    ```
-3. Test the model:
+   The API will now be running at `http://localhost:8000`.
+
+### 3. Frontend Setup
+You can simply open `frontend/index.html` in your preferred web browser, or use a local development server:
+```bash
+cd ../frontend
+python -m http.server 3000
+```
+Then navigate to `http://localhost:3000` in your web browser.
+
+## Training the Model
+If you want to train the model from scratch on your own dataset:
+1. Download a deepfake dataset (e.g., DFDC) and organize it according to this structure:
+   ```text
+   dataset/
+   ├── DFD_original sequences/     # Real, authentic videos
+   └── DFD_manipulated_sequences/  # Fake, deepfake videos
+   ```
+2. Run the optimized training script:
    ```bash
-   python predict.py --input path/to/image_or_video
+   cd training
+   python train_optimized.py
    ```
+3. The script will automatically save the best performing model weights to `backend/deepfake_video_model.pth`.
 
-## Project Structure
-```
-Deep-Fake-Detection-AI-Model/
-├── data/              # Dataset storage
-├── models/            # Trained model files
-├── train.py          # Training script
-├── predict.py        # Inference script
-├── requirements.txt  # Dependencies
-├── README.md         # This file
-```
-
-## Contributing
-1. Fork the repo.
-2. Create a branch (`git checkout -b feature/your-feature`).
-3. Commit changes (`git commit -m "Add feature"`).
-4. Push (`git push origin feature/your-feature`).
-5. Open a Pull Request.
-
-## Issues
-Report bugs or request features at [Issues](https://github.com/KunalWaghe/Deep-Fake-Detection-Model/issues).
-
-## Contact
-- Author: Kunal Waghe
-- GitHub: [KunalWaghe](https://github.com/KunalWaghe)
+## Contact & Author
+- **Author**: Kunal Waghe
+- **GitHub**: [KunalWaghe](https://github.com/KunalWaghe)
+- **Issues**: Report bugs or request features at [Issues](https://github.com/KunalWaghe/Deep-Fake-Detection-Model/issues).
