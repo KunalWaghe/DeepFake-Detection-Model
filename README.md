@@ -16,7 +16,7 @@ A machine learning model to detect deepfake images and videos using deep learnin
 ## Installation
 1. Clone the repo:
    ```bash
-   git clone https://github.com/yash-goyal-0910/DeepFake-Detection-Model.git
+   git clone https://github.com/yash-goyal-0910/Deep-Fake-Detection-AI-Model.git
    cd Deep-Fake-Detection-AI-Model
    ```
 2. Create a virtual environment:
@@ -59,8 +59,8 @@ Deep-Fake-Detection-AI-Model/
 5. Open a Pull Request.
 
 ## Issues
-Report bugs or request features at [Issues](https://github.com/KunalWaghe/DeepFake-Detection-Model/issues).
+Report bugs or request features at [Issues](https://github.com/yash-goyal-0910/Deep-Fake-Detection-AI-Model/issues).
 
 ## Contact
-- Author: Kunal Waghe
-- GitHub: [KunalWaghe](https://github.com/KunalWaghe)
+- Author: Yash Goyal
+- GitHub: [yash-goyal-0910](https://github.com/yash-goyal-0910)

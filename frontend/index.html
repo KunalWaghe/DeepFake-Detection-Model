@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepFake Detector — AI-Powered Video Analysis</title>
+    <meta name="description" content="Upload a video and let our AI determine if it's authentic or a deepfake. Powered by InceptionV3 and deep learning.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Animated background particles -->
+    <div class="bg-effects">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header" id="app-header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </div>
+                <h1>DeepFake Detector</h1>
+            </div>
+            <p class="tagline">AI-powered video authenticity analysis</p>
+        </header>
+
+        <!-- Upload Section -->
+        <main class="main-card" id="main-card">
+            <div class="upload-zone" id="upload-zone">
+                <div class="upload-content" id="upload-content">
+                    <div class="upload-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="17 8 12 3 7 8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                    </div>
+                    <h2>Drop your video here</h2>
+                    <p>or click to browse files</p>
+                    <span class="file-types">MP4, AVI, MOV, MKV, WebM • Max 100MB</span>
+                </div>
+
+                <!-- Video preview (hidden initially) -->
+                <div class="video-preview" id="video-preview" style="display:none;">
+                    <video id="preview-player" muted></video>
+                    <div class="preview-overlay">
+                        <div class="file-info" id="file-info"></div>
+                        <button class="btn-change" id="btn-change" type="button">Change</button>
+                    </div>
+                </div>
+
+                <input type="file" id="file-input" accept="video/mp4,video/avi,video/mov,video/x-matroska,video/webm" hidden>
+            </div>
+
+            <!-- Analyze Button -->
+            <button class="btn-analyze" id="btn-analyze" disabled>
+                <span class="btn-text">Analyze Video</span>
+                <div class="btn-loader" id="btn-loader" style="display:none;">
+                    <div class="spinner"></div>
+                    <span>Analyzing...</span>
+                </div>
+            </button>
+        </main>
+
+        <!-- Result Section (hidden initially) -->
+        <section class="result-card" id="result-card" style="display:none;">
+            <div class="result-header" id="result-header">
+                <div class="result-icon" id="result-icon"></div>
+                <h2 class="result-verdict" id="result-verdict"></h2>
+            </div>
+            <div class="confidence-section">
+                <div class="confidence-label">
+                    <span>Confidence</span>
+                    <span class="confidence-value" id="confidence-value"></span>
+                </div>
+                <div class="confidence-bar-track">
+                    <div class="confidence-bar-fill" id="confidence-bar-fill"></div>
+                </div>
+            </div>
+            <p class="result-description" id="result-description"></p>
+            <button class="btn-reset" id="btn-reset">Analyze Another Video</button>
+        </section>
+
+        <!-- Error Section (hidden initially) -->
+        <section class="error-card" id="error-card" style="display:none;">
+            <div class="error-icon">⚠️</div>
+            <h3 id="error-title">Analysis Failed</h3>
+            <p id="error-message"></p>
+            <button class="btn-reset" id="btn-error-reset">Try Again</button>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Built with TensorFlow & InceptionV3 • <a href="https://github.com/yash-goyal-0910/Deep-Fake-Detection-AI-Model" target="_blank">GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

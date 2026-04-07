@@ -1,0 +1,7 @@
+tf_env/
+__pycache__/
+*.pyc
+backend/uploads/
+.env
+dataset/
+
